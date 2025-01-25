@@ -1,5 +1,4 @@
 \documentclass{article}
-\usepackage{graphicx}
 
 \begin{document}
 
@@ -14,6 +13,19 @@
 \vspace{1cm}
 
 \section*{fehrest mataleb}
+taklif: inja mitavanid tozihat marboot be taklif ra ezafe konid.
+
+\newpage
+
+\section*{taklif}
+
+\textbf{1.1 Repository Initialization and Commits}
+
+
+\section*{list mataleb}
+
+\textbf{1.1 Repository Initialization and Commits}
+\section*{Table of Contents}
 
 \section{Git and GitHub}
 \subsection{Repository Initialization and Commits}
@@ -26,69 +38,10 @@
 \subsubsection{Memory Profilers}
 \subsection{GNU/Linux Bash Scripting}
 \subsubsection{fzf}
-\subsubsection{Using fzf to find your favorite PDF}
-\subsubsection{Opening the file using Zathura}
+\subsubsection{Using fzf to Find Your Favorite PDF}
+\subsubsection{Opening the File Using Zathura}
 
 \section{Git and FOSS}
 \subsection{README.md}
 \subsection{Issues}
-\subsection{FOSS contribution}
-
-
-
-
-
-\newpage
-
-
-
-
-
-
-
-
-\section*{taklif}
-
-\textbf{1.1 Repository Initialization and Commits}
-
-\textbf{Setting Up the Repository} \\
-To set up the repository, I first went to GitHub and created a new repository named Final-Assignment. During the repository creation, I disabled the Initialize this repository with a README option. After creating the repository, I used the git clone command to clone it to my local system.
-
-\begin{verbatim}
-git clone https://github.com/username/Final-Assignment.git
-cd Final-Assignment
-\end{verbatim}
-
-\textbf{Creating the LaTeX File and Making the First Commit} \\
-Inside the local repository, I created a new file called assignment.tex and added initial content. I then added the changes to the staging area using git add and committed them with git commit. Finally, I pushed the changes to the GitHub repository.
-
-\begin{verbatim}
-git add assignment.tex
-git commit -m "Add initial LaTeX file"
-git push origin main
-\end{verbatim}
-
-\textbf{Setting Up Directory Structure and Additional Files} \\
-To better organize the project, I created directories for sections and images and placed some LaTeX files like introduction.tex and git.tex in the sections directory.
-
-\begin{verbatim}
-mkdir sections images
-touch sections/introduction.tex sections/git.tex
-\end{verbatim}
-
-\textbf{Making Regular Commits} \\
-After each modification, I tracked and committed the changes using git add and git commit, and then pushed them to GitHub.
-
-\begin{verbatim}
-git add sections/git.tex
-git commit -m "Added Git section to LaTeX document"
-git push origin main
-\end{verbatim}
-
-\textbf{Using Tags to Trigger GitHub Actions} \\
-To trigger GitHub Actions for automatic LaTeX PDF compilation, I used tags. I created a new tag and pushed it to GitHub.
-
-\begin{verbatim}
-git tag v1.0
-git push origin v1.0
-\end{verbatim}
+\subsection{FOSS Contribution}
