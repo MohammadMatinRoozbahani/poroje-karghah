@@ -409,3 +409,110 @@ To open the selected PDF file using \texttt{Zathura}, use the following command:
 \begin{verbatim}
 zathura $(fd -e pdf | fzf)
 \end{verbatim}
+This command will list all PDF files in the current directory and its subdirectories, allow you to select one interactively using \texttt{fzf}, and then open the selected PDF using \texttt{Zathura}.
+
+
+
+
+
+
+\subsection*{Using zathura (command)}
+
+\textbf{How the command works:}
+
+The command \texttt{zathura \$(command)} is used to open a PDF file using the \texttt{Zathura} PDF viewer. In this command, \texttt{\$(command)} is used to execute a command, and the output of that command is passed to \texttt{zathura} as the file to be opened.
+
+\textbf{Example:}
+
+To list all PDF files and then select one interactively, use the following command:
+
+\begin{verbatim}
+zathura \$(fd -e pdf | fzf)
+\end{verbatim}
+
+\texttt{fd -e pdf} lists all PDF files, \texttt{| fzf} lets the user select a file interactively, and \texttt{zathura \$(...)} opens the selected PDF file.
+
+
+
+
+
+
+
+
+\section*{README.md for GitHub Repository}
+
+The goal was to run LaTeX on GitHub.
+
+\subsection*{Repository Content}
+
+This repository contains the following:
+
+\begin{itemize}
+    \item LaTeX files for the final project, where instructions and the project are written in a structured way.
+    \item Git repository setup, including regular commits, tagging, and using GitHub Actions for automatic compilation.
+    \item Various scripts and tools used in the project, such as Bash commands and LaTeX files.
+\end{itemize}
+
+\subsection*{Setup Instructions}
+
+To compile the LaTeX document via GitHub Actions:
+
+\begin{enumerate}
+    \item First, clone the repository to your system:
+    \begin{verbatim}
+    git clone https://github.com/username/Final-Assignment.git
+    cd Final-Assignment
+    \end{verbatim}
+
+    \item Ensure that all prerequisites, like LaTeX and GitHub Actions, are properly set up.
+    
+    \item To trigger automatic PDF compilation via GitHub Actions, add a new tag:
+    \begin{verbatim}
+    git tag v1.0
+    git push origin v1.0
+    \end{verbatim}
+\end{enumerate}
+
+\subsection*{License}
+
+This project is licensed under the MIT License - see the \texttt{LICENSE} file for details.
+
+
+
+\begin{figure}[h!]
+    \centering
+    % بارگذاری تصویر از مسیر مشخص شده
+    \includegraphics[width=0.7\textwidth]{mili.png}
+    % اضافه کردن عنوان زیر تصویر
+    % \caption{اسکرین‌شات از مشکل در GitHub}
+    % تعیین برچسب برای ارجاع به تصویر
+    % \label{fig:issue}
+\end{figure}
+
+
+
+
+
+
+
+
+
+\section*{3.3 FOSS Contribution}
+
+No, because it doesn't seem interesting to me.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
