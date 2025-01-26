@@ -74,3 +74,135 @@ git add assignment.tex
 git commit -m "Add initial LaTeX file"
 git push origin main
 \end{verbatim}
+\usepackage{graphicx}
+\textbf{Setting Up Directory Structure and Additional Files} \\
+To better organize the project, I created directories for sections and images and placed some LaTeX files like introduction.tex and git.tex in the sections directory.
+
+\begin{verbatim}
+mkdir sections images
+touch sections/introduction.tex sections/git.tex
+\end{verbatim}
+
+\textbf{Making Regular Commits} \\
+After each modification, I tracked and committed the changes using git add and git commit, and then pushed them to GitHub.
+
+\begin{verbatim}
+git add sections/git.tex
+git commit -m "Added Git section to LaTeX document"
+git push origin main
+\end{verbatim}
+
+\textbf{Using Tags to Trigger GitHub Actions} \\
+To trigger GitHub Actions for automatic LaTeX PDF compilation, I used tags. I created a new tag and pushed it to GitHub.
+
+\begin{verbatim}
+git tag v1.0
+git push origin v1.0
+\end{verbatim}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section*{1.2 GitHub Actions for LaTeX Compilation}
+
+\textbf{Steps to Set Up GitHub Actions for Automatic LaTeX Compilation}
+
+To set up GitHub Actions for automatic LaTeX compilation, I followed these steps:
+
+1. First, I created a folder named `.github/workflows` in my GitHub repository.
+2. Then, I created a YAML file named `latex.yml` inside this folder to define the GitHub Actions configuration.
+3. Inside the `latex.yml` file, I added the following configuration to automatically compile the LaTeX file:
+
+\begin{verbatim}
+name: Build LaTeX PDF
+
+on:
+  push:
+    branches:
+      - main
+  tags:
+    - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up TeX Live
+        uses: yml2latex/texlive-action@v1
+        with:
+          texlive-version: "2020"
+
+      - name: Compile LaTeX file
+        run: |
+          pdflatex -interaction=nonstopmode assignment.tex
+          pdflatex -interaction=nonstopmode assignment.tex
+      - name: Upload PDF as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: assignment-pdf
+          path: assignment.pdf
+\end{verbatim}
+
+4. After setting up the YAML file, every time I add a new tag to the repository, GitHub Actions automatically runs the LaTeX compilation process and provides the resulting PDF in the "Artifacts" section.
+
+\textbf{Challenges}
+
+- The first challenge I encountered was ensuring the proper installation of the correct version of TeX Live, which required some additional setup.
+- Sometimes, errors occurred during the LaTeX file compilation due to missing packages or incorrect settings, requiring further investigation.
+- Additionally, after each modification to the LaTeX file, I needed to ensure that the PDF was regenerated properly and that the process ran smoothly without issues.
+
+
+
+
+
+
+
+
+
+\section*{Advanced Vim Features}
+
+Here are three advanced and lesser-known Vim features that may not have been covered in class:
+
+\subsection*{1. Vim Sessions (Saving and Restoring State)}
+One interesting feature of Vim is the ability to use Sessions, which allows you to save the current state and open files, then restore them at a later time. This is particularly useful when working on large projects or multiple files and you don't want to manually reopen them each time.
+
+To save a session, you can use the following command:
+\begin{verbatim}
+:mksession! ~/my_session.vim
+\end{verbatim}
+
+To restore the session and bring back the previous state:
+\begin{verbatim}
+vim -S ~/my_session.vim
+\end{verbatim}
+
+This method ensures that you can return to exactly where you left off, with the files and settings as they were.
+
+\subsection*{2. Vim Marks (Bookmarking Points)}
+Marking different points in your files can be very helpful for quick editing or navigation in long files. With Marks, you can save locations you need and return to them later.
+
+To mark a location, simply use the \texttt{m} command followed by a letter:
+\begin{verbatim}
+ma
+\end{verbatim}
+This saves a mark named \texttt{a} at the current position.
+
+To go to a marked point:
+\begin{verbatim}
+'a
+\end{verbatim}
